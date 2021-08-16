@@ -16,9 +16,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/admin', function () {
-    return 'hello';
-})->name('admin.dashboard');
+
 
 // route untuk vertifikasi email
 Auth::routes(['verify'=>true]);
