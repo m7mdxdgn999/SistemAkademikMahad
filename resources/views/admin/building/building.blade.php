@@ -17,17 +17,7 @@
 
             <div class="row">
                 <div class="col-12 col-md-12 col-lg-12">
-                    @if (session('message'))
-                        <div class="alert alert-success alert-dismissible show fade">
-                            <div class="alert-body">
-                                <button class="close" data-dismiss="alert">
-                                    <span>×</span>
-                                </button>
-                                {{ session('message') }}
-                            </div>
-                        </div>
-                    @endif
-
+                   
                     {{-- table start --}}
                     <div class="card">
                         <div class="card-body">
@@ -60,6 +50,12 @@
 
 
 @push('scripts')
+
+    {{-- boostrap notify --}}
+    <script src="{{ asset('assets/plugins/bs-notify-min.js') }}"></script>
+    @include('layouts.admin.alert')
+
+
     <script>
         $(function() {
             $('#datatable').DataTable({

@@ -63,8 +63,7 @@
             <!-- Main Content end -->
         </div>
     </div>
-
-    @stack('before-scripts')
+   
     <!-- General JS Scripts -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -98,7 +97,8 @@
     <script src="{{ asset('assets/plugins/pdfmake/vfs_fonts.js') }}"></script>
     <script src="{{ asset('assets/plugins/datatables-buttons/js/buttons.html5.min.js') }}"></script>
     <script src="{{ asset('assets/plugins/datatables-buttons/js/buttons.print.min.js') }}"></script>
-    <script src="{{ asset('assets/plugins/datatables-buttons/js/buttons.colVis.min.js') }}"></script>    
+    <script src="{{ asset('assets/plugins/datatables-buttons/js/buttons.colVis.min.js') }}"></script>   
+   
     
 
     @stack('scripts')

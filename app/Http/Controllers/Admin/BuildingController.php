@@ -42,7 +42,7 @@ class BuildingController extends Controller
 
         ]);
 
-        return redirect()->route('admin.building.index')->with('message', 'Data berhasil ditambah!');
+        return redirect()->route('admin.building.index')->with('success', 'Data berhasil ditambah!');
     }
 
     /**
@@ -83,7 +83,7 @@ class BuildingController extends Controller
             'nama_mabna' => $request->nama_mabna
         ]);
 
-        return redirect()->route('admin.building.index')->with('message', 'Data berhasil diupdate!');
+        return redirect()->route('admin.building.index')->with('info', 'Data berhasil diupdate!');
     }
 
     /**
@@ -95,6 +95,6 @@ class BuildingController extends Controller
     public function destroy(Building $building)
     {
         $building->delete();
-        return redirect()->back()->with('message', 'Data berhasil dihapus');
+        return redirect()->back()->with('danger', 'Data berhasil dihapus');
     }
 }
