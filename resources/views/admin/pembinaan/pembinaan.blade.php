@@ -60,6 +60,7 @@
                                                     @method('delete')
                                                     <button type="submit" class="btn btn-danger "><i
                                                             class="fas fa-trash"></i></button>
+                                                            <a href=""></a>
                                                 </form>
                                             </td>
 
