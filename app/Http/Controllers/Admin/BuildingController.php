@@ -15,7 +15,7 @@ class BuildingController extends Controller
      */
     public function index()
     {
-        return view('admin.mabna.mabna');
+        return view('admin.building.building');
     }
 
     /**
@@ -25,7 +25,7 @@ class BuildingController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.building.create');
     }
 
     /**
@@ -36,7 +36,13 @@ class BuildingController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Building::create([
+            'kode_mabna' => $request->kode_mabna,
+            'nama_mabna' => $request->nama_mabna
+
+        ]);
+
+        return redirect()->route('admin.building.index')->with('message', 'Data berhasil ditambah!');
     }
 
     /**
@@ -58,7 +64,7 @@ class BuildingController extends Controller
      */
     public function edit(Building $building)
     {
-        return view('admin.mabna.edit', [
+        return view('admin.building.edit', [
             'building'=>$building
         ]);
     }

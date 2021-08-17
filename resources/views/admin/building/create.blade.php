@@ -21,7 +21,7 @@
                         </div>
                         <div class="card-body">
 
-                            <form action="{{ route('mabna.store') }}" method="post">
+                            <form action="{{ route('admin.building.store') }}" method="post">
                                 @csrf
                                 <div class="row">
                                     <div class="col-md-6">

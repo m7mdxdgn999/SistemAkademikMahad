@@ -9,5 +9,5 @@ class Building extends Model
     protected $fillable=[
         'kode_mabna','nama_mabna'
     ];
-    
+    public $timestamps = false;
 }

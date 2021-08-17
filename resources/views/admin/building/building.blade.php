@@ -11,9 +11,9 @@
 
         <div class="section-body">
 
-            {{-- <a href="{{ route('mabna.create') }}" class="btn btn-icon icon-left btn-primary"
+            <a href="{{ route('admin.building.create') }}" class="btn btn-icon icon-left btn-primary"
                 style="margin-bottom:30px"><i class="far fa-edit"></i> Tambah
-                Mabna</a> --}}
+                Mabna</a>
 
             <div class="row">
                 <div class="col-12 col-md-12 col-lg-12">
