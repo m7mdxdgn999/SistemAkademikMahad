@@ -94,6 +94,7 @@ class BuildingController extends Controller
      */
     public function destroy(Building $building)
     {
-        //
+        $building->delete();
+        return redirect()->back()->with('message', 'Data berhasil dihapus');
     }
 }

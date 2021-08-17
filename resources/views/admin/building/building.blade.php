@@ -36,7 +36,7 @@
                                     <tr>
                                         <th scope="col">Kode Mabna</th>
                                         <th scope="col">Nama Mabna</th>
-                                        <th scope="col" >Aksi</th>
+                                        <th scope="col"  >Aksi</th>
                                     </tr>
                                 </thead>
                             </table>

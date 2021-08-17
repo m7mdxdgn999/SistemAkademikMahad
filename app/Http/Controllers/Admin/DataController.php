@@ -12,10 +12,14 @@ class DataController extends Controller
     public function buildings()
     {
         return datatables()->of(Building::query())
-            ->addColumn('action', function (Building $building) {
-                return '<a href="' .route('admin.building.edit',$building).'" class="btn btn-icon btn-primary"><i
-                                class="far fa-edit">Edit</i></a>';
-            })
+            ->addColumn('action', 'admin.building.action')
             ->tojson();
+
+            // ->addColumn('action', function (Building $building) {
+            //     return '<a href="' .route('admin.building.edit',$building).'" class="btn btn-icon btn-primary"><i
+            //                     class="far fa-edit">Edit</i></a>
+            //                     <a href="' .route('admin.building.edit',$building).'" class="btn btn-icon btn-primary"><i
+            //                     class="far fa-edit">Hapus</i></a>';
+            // })
     }
 }
