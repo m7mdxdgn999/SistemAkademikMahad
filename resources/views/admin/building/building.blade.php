@@ -36,7 +36,7 @@
                                     <tr>
                                         <th scope="col">Kode Mabna</th>
                                         <th scope="col">Nama Mabna</th>
-                                        <th scope="col"  >Aksi</th>
+                                        <th scope="col">Aksi</th>
                                     </tr>
                                 </thead>
                             </table>
@@ -50,27 +50,34 @@
 
         </div>
     </section>
+    {{-- unutk keperluan sweet alert --}}
+    <form action="" method="post" id=deleteForm>
+        @csrf
+        @method('delete')
+        <input type="submit" style="display:none">
+    </form>
 @endsection
 
 
 @push('scripts')
-<script>
-    $(function() {
-        $('#datatable').DataTable({
-            processing: true,
-            serverSide: true,
-            ajax: '{{ route('admin.building.data') }}',
-            columns: [{
-                    data: 'kode_mabna'
-                },
-                {
-                    data: 'nama_mabna'
-                },
-                {
-                    data: 'action'
-                }
-            ]
+    <script>
+        $(function() {
+            $('#datatable').DataTable({
+                processing: true,
+                serverSide: true,
+                ajax: '{{ route('admin.building.data') }}',
+                columns: [{
+                        data: 'kode_mabna'
+                    },
+                    {
+                        data: 'nama_mabna'
+                    },
+                    {
+                        data: 'action'
+                    }
+                ]
+            });
         });
-    });
-</script>
+
+    </script>
 @endpush

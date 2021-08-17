@@ -14,12 +14,5 @@ class DataController extends Controller
         return datatables()->of(Building::query())
             ->addColumn('action', 'admin.building.action')
             ->tojson();
-
-            // ->addColumn('action', function (Building $building) {
-            //     return '<a href="' .route('admin.building.edit',$building).'" class="btn btn-icon btn-primary"><i
-            //                     class="far fa-edit">Edit</i></a>
-            //                     <a href="' .route('admin.building.edit',$building).'" class="btn btn-icon btn-primary"><i
-            //                     class="far fa-edit">Hapus</i></a>';
-            // })
     }
 }
