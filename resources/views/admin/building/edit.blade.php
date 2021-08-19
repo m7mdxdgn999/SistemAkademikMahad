@@ -22,7 +22,7 @@
                         <div class="card-body">
 
                             
-                            <form action="{{ route('admin.building.update', $building) }}" method="post">
+                            <form action="{{ route('admin.building.update', $mabna) }}" method="post">
                                 @csrf
                                 @method('put')
                                 <div class="row">
@@ -31,7 +31,7 @@
                                             <label for="kode_mabna">Kode Mabna</label>
                                             <input type="text" class="form-control @error('kode_mabna') is-invalid                                                    
                                                 @enderror" 
-                                                name="kode_mabna" @if (old('kode_mabna')) value="{{ old('kode_mabna') }}" @else value="{{ $building->kode_mabna }}" @endif>
+                                                name="kode_mabna" @if (old('kode_mabna')) value="{{ old('kode_mabna') }}" @else value="{{ $mabna->kode_mabna }}" @endif>
                                             @error('kode_mabna')
                                                 <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
@@ -41,7 +41,7 @@
                                     <div class="col-md-6">
                                         <div class="mb-3">
                                             <label for="nama_mabna">Nama Mabna</label>
-                                            <input type="text" class="form-control @error('nama_mabna') is-invalid @enderror "  name="nama_mabna" value="{{ $building->nama_mabna}}">
+                                            <input type="text" class="form-control @error('nama_mabna') is-invalid @enderror "  name="nama_mabna" value="{{ $mabna->nama_mabna}}">
                                             @error('nama_mabna')
                                                 <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
@@ -51,8 +51,7 @@
 
                                 <div class="card-footer text-right">
                                     <button class="btn btn-primary mr-1" type="submit" id="submit"
-                                        name="submit">Submit</button>
-                                    <button class="btn btn-secondary" type="reset">Reset</button>
+                                        name="submit">Submit</button>                                    
                                 </div>
                             </form>
                         </div>

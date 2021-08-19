@@ -6,6 +6,7 @@ use App\Building;
 use App\Http\Controllers\Controller;
 use App\Pembinaan;
 use App\Dosen;
+use App\Mabna;
 use Illuminate\Http\Request;
 use Yajra\Datatables\Datatables;
 
@@ -13,7 +14,7 @@ class DataController extends Controller
 {
     public function buildings()
     {
-        return datatables()->of(Building::query())
+        return datatables()->of(Mabna::query())
             ->addColumn('action', 'admin.building.action')
             ->tojson();
     }

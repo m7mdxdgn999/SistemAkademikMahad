@@ -17,8 +17,8 @@ class CreateDosenTable extends Migration
             $table->string('kode_dosen')->primary();
             $table->string('nip');
             $table->string('nama_dosen');
-            $table->unsignedBigInteger('kode_mabna');
-            $table->foreign('kode_mabna')->references('id')->on ('buildings')->onUpdate('CASCADE')->onDelete('CASCADE');
+            $table->string('kode_mabna');
+            $table->foreign('kode_mabna')->references('kode_mabna')->on ('mabna')->onUpdate('CASCADE')->onDelete('CASCADE');
             $table->integer('no_hp_dosen');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();

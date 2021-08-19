@@ -18,7 +18,7 @@ class Dosen extends Authenticatable implements MustVerifyEmail
     ];
 
     public function mabna(){
-        return $this->belongsTo('App\Building','kode_mabna','id');
+        return $this->belongsTo('App\Mabna','kode_mabna','kode_mabna');
     }
 
     protected $table = 'dosen';
