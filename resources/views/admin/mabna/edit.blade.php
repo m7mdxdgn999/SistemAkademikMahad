@@ -22,7 +22,7 @@
                         <div class="card-body">
 
                             
-                            <form action="{{ route('admin.building.update', $mabna) }}" method="post">
+                            <form action="{{ route('admin.mabna.update', $mabna) }}" method="post">
                                 @csrf
                                 @method('put')
                                 <div class="row">
@@ -66,6 +66,4 @@
     </section>
 @endsection
 
-@push('page-scripts')
 
-@endpush

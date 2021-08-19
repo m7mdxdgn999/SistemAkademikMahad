@@ -10,7 +10,7 @@
 
         <div class="section-body">
 
-            <a href="{{ route('admin.building.create') }}" class="btn btn-icon icon-left btn-primary"
+            <a href="{{ route('admin.mabna.create') }}" class="btn btn-icon icon-left btn-primary"
                 style="margin-bottom:30px"><i class="far fa-edit"></i> Tambah
                 Mabna</a>
 
@@ -56,7 +56,7 @@
             $('#datatable').DataTable({
                 processing: true,
                 serverSide: true,
-                ajax: '{{ route('admin.building.data') }}',
+                ajax: '{{ route('admin.mabna.data') }}',
                 columns: [{
                         data: 'kode_mabna'
                     },

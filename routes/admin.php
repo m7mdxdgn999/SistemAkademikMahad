@@ -2,13 +2,13 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
-Route::get('/mabna', 'MabnaController@Index')->name('building.index');
-Route::get('/mabna/data','DataController@buildings')->name('building.data');
-Route::get('/mabna/create', 'MabnaController@Create')->name('building.create');
-Route::post('/mabna/store', 'MabnaController@Store')->name('building.store');
-Route::get('/mabna/edit/{mabna}','MabnaController@edit')->name('building.edit');
-Route::put('/mabna/update/{mabna}', 'MabnaController@Update')->name('building.update');
-Route::delete('/mabna/delete/{mabna}', 'MabnaController@Destroy')->name('building.destroy');
+Route::get('/mabna', 'MabnaController@Index')->name('mabna.index');
+Route::get('/mabna/data','DataController@buildings')->name('mabna.data');
+Route::get('/mabna/create', 'MabnaController@Create')->name('mabna.create');
+Route::post('/mabna/store', 'MabnaController@Store')->name('mabna.store');
+Route::get('/mabna/edit/{mabna}','MabnaController@edit')->name('mabna.edit');
+Route::put('/mabna/update/{mabna}', 'MabnaController@Update')->name('mabna.update');
+Route::delete('/mabna/delete/{mabna}', 'MabnaController@Destroy')->name('mabna.destroy');
 
 Route::get('/pembinaan', 'PembinaanController@Index')->name('pembinaan.index');
 Route::get('/pembinaan/data','DataController@pembinaan')->name('pembinaan.data');

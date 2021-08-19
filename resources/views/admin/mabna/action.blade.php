@@ -1,9 +1,9 @@
-<form action="{{ route('admin.building.edit', $model) }}" method="get" class="float-left">
+<form action="{{ route('admin.mabna.edit', $model) }}" method="get" class="float-left">
     <button type="submit" class="btn btn-icon btn-primary " ><i
             class="far fa-edit"></i></button>
 </form>
 {{-- button ini ada katinan dengen index untuk keperluan sweet alert --}}
-<button href="{{ route('admin.building.destroy', $model) }}"  class="btn btn-icon btn-danger" id="delete" style="margin-left: 10px"><i class="fas fa-trash"></i></button>
+<button href="{{ route('admin.mabna.destroy', $model) }}"  class="btn btn-icon btn-danger" id="delete" style="margin-left: 10px"><i class="fas fa-trash"></i></button>
 
 
 {{-- sweet alert2 --}}

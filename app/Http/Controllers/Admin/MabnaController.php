@@ -15,7 +15,7 @@ class MabnaController extends Controller
      */
     public function index()
     {
-        return view('admin.building.building');
+        return view('admin.mabna.mabna');
     }
 
     /**
@@ -25,7 +25,7 @@ class MabnaController extends Controller
      */
     public function create()
     {
-        return view('admin.building.create');
+        return view('admin.mabna.create');
     }
 
     /**
@@ -51,7 +51,7 @@ class MabnaController extends Controller
 
         ]);
 
-        return redirect()->route('admin.building.index')->with('success', 'Data berhasil ditambah!');
+        return redirect()->route('admin.mabna.index')->with('success', 'Data berhasil ditambah!');
     }
 
     /**
@@ -73,7 +73,7 @@ class MabnaController extends Controller
      */
     public function edit(Mabna $mabna)
     {
-        return view('admin.building.edit', [
+        return view('admin.mabna.edit', [
             'mabna'=>$mabna
         ]);
     }
@@ -92,7 +92,7 @@ class MabnaController extends Controller
             'nama_mabna' => $request->nama_mabna
         ]);
 
-        return redirect()->route('admin.building.index')->with('info', 'Data berhasil diupdate!');
+        return redirect()->route('admin.mabna.index')->with('info', 'Data berhasil diupdate!');
     }
 
     /**

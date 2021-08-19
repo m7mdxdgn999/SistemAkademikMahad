@@ -15,7 +15,7 @@ class DataController extends Controller
     public function buildings()
     {
         return datatables()->of(Mabna::query())
-            ->addColumn('action', 'admin.building.action')
+            ->addColumn('action', 'admin.mabna.action')
             ->tojson();
     }
 
