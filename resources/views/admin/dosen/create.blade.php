@@ -52,8 +52,8 @@
                                         <div class="mb-3">
                                             <label for="kode_mabna">Mabna</label>
                                             <select class="form-control"  name="kode_mabna">
-                                                @foreach($building as $bld)
-                                                <option value="{{ $bld->id }}">{{ $bld->nama_mabna }}</option>
+                                                @foreach($mabna as $mbn)
+                                                <option value="{{ $mbn->kode_mabna }}">{{ $mbn->nama_mabna }}</option>
                                                 @endforeach
                                             </select>      
                                             @error('kode_mabna')
@@ -62,21 +62,21 @@
                                         </div>
                                         <div class="mb-3">
                                             <label for="email">Email</label>
-                                            <input type="text" class="form-control @error('email') is-invalid @enderror "  placeholder="Email" name="email">
+                                            <input type="text" class="form-control @error('email') is-invalid @enderror "   name="email">
                                             @error('email')
                                                 <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
                                         </div>
                                         <div class="mb-3">
                                             <label for="password">Password</label>
-                                            <input type="password" class="form-control @error('password') is-invalid @enderror "  placeholder="password" name="password">
+                                            <input type="password" class="form-control @error('password') is-invalid @enderror "   name="password">
                                             @error('password')
                                                 <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
                                         </div>
                                         <div class="mb-3">
                                             <label for="no_hp_dosen">No Hp</label>
-                                            <input type="text" class="form-control @error('no_hp_dosen') is-invalid @enderror "  placeholder="No Hp" name="no_hp_dosen">
+                                            <input type="text" class="form-control @error('no_hp_dosen') is-invalid @enderror "   name="no_hp_dosen">
                                             @error('no_hp_dosen')
                                                 <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror

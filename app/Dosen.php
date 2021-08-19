@@ -22,10 +22,10 @@ class Dosen extends Authenticatable implements MustVerifyEmail
     }
 
     protected $table = 'dosen';
-    protected $primaryKey='kode_dosen';
-    protected $keyType = 'string';
+    // protected $primaryKey='kode_dosen';
+    // protected $keyType = 'string';
     
-    public $incrementing = false;
+    // public $incrementing = false;
 
     protected $hidden = [
         'password', 'remember_token',

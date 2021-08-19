@@ -29,10 +29,10 @@ class DataController extends Controller
     public function dosen()
     {
         return datatables()->of(Dosen::query())
-            ->addColumn('building', function(Dosen $model){
+            ->addColumn('mabna', function(Dosen $model){
                 return $model->mabna->nama_mabna;
             })
-            ->addColumn('action', 'admin.pembinaan.action')
+            ->addColumn('action', 'admin.dosen.action')
             ->tojson();
     }
 }

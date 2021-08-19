@@ -79,7 +79,7 @@
                             data: 'nama_dosen'
                         },
                         {
-                            data: 'building'
+                            data: 'mabna'
                         },
                         {
                             data: 'email'

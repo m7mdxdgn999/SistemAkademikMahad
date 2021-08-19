@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Building;
 use App\Dosen;
 use App\Http\Controllers\Controller;
+use App\Mabna;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -27,7 +28,7 @@ class DosenController extends Controller
      */
     public function create()
     {
-        return view('admin.dosen.create',['building'=>Building::all()]);
+        return view('admin.dosen.create',['mabna'=>Mabna::all()]);
     }
 
     /**
@@ -75,7 +76,10 @@ class DosenController extends Controller
      */
     public function edit(Dosen $dosen)
     {
-        //
+        return view('admin.dosen.edit', [
+            'dosen'=>$dosen,
+            'mabna'=>Mabna::orderBy('nama_mabna','ASC')->get(),
+        ]);
     }
 
     /**
@@ -87,7 +91,19 @@ class DosenController extends Controller
      */
     public function update(Request $request, Dosen $dosen)
     {
-        //
+        $dosen->nip=$request->nip;
+        $dosen->kode_dosen=$request->kode_dosen;
+        $dosen->nama_dosen=$request->nama_dosen;
+        $dosen->kode_mabna=$request->kode_mabna;
+        $dosen->email=$request->email;
+        $dosen->no_hp_dosen=$request->no_hp_dosen;
+        $dosen->nama_dosen=$request->nama_dosen;
+        if ($request->password != '') {
+            $dosen->password = $request->password;
+        }
+        $dosen->save();
+
+        return redirect()->route('admin.dosen.index')->with('info', 'Data berhasil diupdate!');
     }
 
     /**
@@ -98,6 +114,7 @@ class DosenController extends Controller
      */
     public function destroy(Dosen $dosen)
     {
-        //
+        $dosen->delete();
+        return redirect()->back()->with('danger', 'Data berhasil dihapus');
     }
 }
