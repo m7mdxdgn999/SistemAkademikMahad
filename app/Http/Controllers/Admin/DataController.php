@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Pembinaan;
 use App\Dosen;
 use App\Mabna;
+use App\TahunAkademik;
 use Illuminate\Http\Request;
 use Yajra\Datatables\Datatables;
 
@@ -33,6 +34,13 @@ class DataController extends Controller
                 return $model->mabna->nama_mabna;
             })
             ->addColumn('action', 'admin.dosen.action')
+            ->tojson();
+    }
+
+    public function tahun_akademik()
+    {
+        return datatables()->of(TahunAkademik::query())
+            ->addColumn('action', 'admin.tahun_akademik.action')
             ->tojson();
     }
 }

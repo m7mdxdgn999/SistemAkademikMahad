@@ -27,3 +27,11 @@ Route::post('/dosen/store', 'DosenController@Store')->name('dosen.store');
 Route::get('/dosen/edit/{dosen}', 'DosenController@Edit')->name('dosen.edit');
 Route::put('/dosen/update/{dosen}', 'DosenController@Update')->name('dosen.update');
 Route::delete('/dosen/delete/{dosen}', 'DosenController@Destroy')->name('dosen.destroy');
+
+Route::get('/tahun_akademik', 'TahunAkademikController@Index')->name('tahun_akademik.index');
+Route::get('/tahun_akademik/data','DataController@tahun_akademik')->name('tahun_akademik.data');
+Route::get('/tahun_akademik/create', 'TahunAkademikController@Create')->name('tahun_akademik.create');
+Route::post('/tahun_akademik/store', 'TahunAkademikController@Store')->name('tahun_akademik.store');
+Route::get('/tahun_akademik/edit/{tahunAkademik}', 'TahunAkademikController@Edit')->name('tahun_akademik.edit');
+Route::put('/tahun_akademik/update/{tahunAkademik}', 'TahunAkademikController@Update')->name('tahun_akademik.update');
+Route::delete('/tahun_akademik/delete/{tahunAkademik}', 'TahunAkademikController@Destroy')->name('tahun_akademik.destroy');

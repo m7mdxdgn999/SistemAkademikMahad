@@ -3,7 +3,6 @@
 
 @section('content')
     <section class="section">
-
         <div class="section-header">
             <h1>Dosen</h1>
 
@@ -49,6 +48,7 @@
                 </div>
             </div>
         </div>
+    </section>
     {{-- unutk keperluan sweet alert --}}
     <form action="" method="post" id=deleteForm>
         @csrf

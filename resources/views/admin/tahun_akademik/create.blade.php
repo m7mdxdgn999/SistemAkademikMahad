@@ -21,7 +21,7 @@
                         </div>
                         <div class="card-body">
 
-                            <form action="{{ route('tahun_akademik.store') }}" method="post">
+                            <form action="{{ route('admin.tahun_akademik.store') }}" method="post">
                                 @csrf
                                 <div class="row">
                                     <div class="col-md-6">
@@ -90,9 +90,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-
-                                
+                                </div>                               
 
                                 <div class="card-footer text-right">
                                     <button class="btn btn-primary mr-1" type="submit" id="submit"
