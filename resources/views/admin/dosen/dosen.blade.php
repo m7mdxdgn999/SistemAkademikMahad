@@ -11,18 +11,18 @@
 
         <div class="section-body">
 
-            <a href="{{ route('dosen.create') }}" class="btn btn-icon icon-left btn-primary"
-                style="margin-bottom:30px"><i class="far fa-edit"></i>
+            <a href="{{ route('admin.dosen.create') }}" class="btn btn-icon icon-left btn-primary" style="margin-bottom:30px"><i
+                    class="far fa-edit"></i>
                 Tambah
-               Dosen</a> 
-            
-            <a href="{{ route('export.excel') }}" class="btn btn-icon icon-left btn-success"
-                style="margin-bottom:30px"><i class="far fa-file-excel"></i>
-                Export Ke Excel</a> 
+                Dosen</a>
 
-            <a href="{{ route('export.pdf') }}" class="btn btn-icon icon-left btn-success"
-                style="margin-bottom:30px"><i class="far fa-file-excel"></i>
-                Export Ke Pdf</a> 
+            <a href="{{ route('admin.export.excel') }}" class="btn btn-icon icon-left btn-success" style="margin-bottom:30px"><i
+                    class="far fa-file-excel"></i>
+                Export Ke Excel</a>
+
+            <a href="{{ route('admin.export.pdf') }}" class="btn btn-icon icon-left btn-success" style="margin-bottom:30px"><i
+                    class="far fa-file-excel"></i>
+                Export Ke Pdf</a>
 
             <div class="row">
                 <div class="col-12 col-md-12 col-lg-12">
@@ -44,7 +44,7 @@
                     {{-- table start --}}
                     <div class="card">
                         <div class="card-body">
-                            <table class="table ">
+                            <table class="table table-bordered table-hover " id="datatable">
                                 <thead>
                                     <tr>
                                         <th scope="col">Kode Dosen</th>
@@ -53,36 +53,9 @@
                                         <th scope="col">Mabna</th>
                                         <th scope="col">Email</th>
                                         <th scope="col">No Hp</th>
-                                        <th scope="col" width="140">Aksi</th>
+                                        <th scope="col" >Aksi</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    @foreach ($dosen as $dsn)
-                                        <tr>
-                                            <td>{{ $dsn->kode_dosen }}</td>
-                                            <td>{{ $dsn->nip }}</td>
-                                            <td>{{ $dsn->nama_dosen }}</td>
-                                            <td>{{ $dsn->nama_mabna }}</td>
-                                            <td>{{ $dsn->email }}</td>
-                                            <td>{{ $dsn->no_hp_dosen }}</td>
-                                            <td>
-                                                <form action="{{ route('dosen.edit', $dsn->nip) }}"
-                                                    class="float-left" method="get">
-                                                    <button type="submit" class="btn btn-icon btn-primary"><i
-                                                            class="far fa-edit"></i></button>
-                                                </form>
-                                                <form action="{{ route('dosen.delete', $dsn->nip) }}"
-                                                    class="float-right " method="post">
-                                                    @csrf
-                                                    @method('delete')
-                                                    <button type="submit" class="btn btn-icon btn-danger"><i
-                                                            class="fas fa-trash"></i></button>
-                                                </form>
-                                            </td>
-
-                                        </tr>
-                                    @endforeach
-                                </tbody>
                             </table>
                         </div>
                     </div>
@@ -90,14 +63,46 @@
                     {{-- tablde end --}}
 
                 </div>
-
             </div>
-
-
         </div>
-
-
-
-
-
     @endsection
+    @push('scripts')
+
+        {{-- boostrap notify --}}
+        <script src="{{ asset('assets/plugins/bs-notify-min.js') }}"></script>
+        @include('layouts.admin.alert')
+
+
+        <script>
+            $(function() {
+                $('#datatable').DataTable({
+                    processing: true,
+                    serverSide: true,
+                    ajax: '{{ route('admin.dosen.data') }}',
+                    columns: [{
+                            data: 'kode_dosen'
+                        },
+                        {
+                            data: 'nip'
+                        },
+                        {
+                            data: 'nama_dosen'
+                        },
+                        {
+                            data: 'building'
+                        },
+                        {
+                            data: 'email'
+                        },
+                        {
+                            data: 'no_hp_dosen'
+                        },
+                        {
+                            data: 'action'
+                        }
+                    ]
+                });
+            });
+
+        </script>
+    @endpush

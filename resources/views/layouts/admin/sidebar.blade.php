@@ -17,8 +17,8 @@
           </li>
           <li class="menu-header">Mahaad Al-Jam'iah</li>
           <li class=""><a class="nav-link" href="{{ route('admin.building.index') }}"><i class="fas fa-building"></i><span>Mabna</span></a></li> 
-          {{-- <li class=""><a class="nav-link" href="{{ route('pembinaan.index') }}"><i class="fas fa-book"></i><span>Pembinaaan</span></a></li>
-          <li class=""><a class="nav-link" href="{{ route('tahun_akademik.index') }}"><i class="fas fa-calendar-week"></i><span>Tahun kademik</span></a></li>
+          <li class=""><a class="nav-link" href="{{ route('admin.pembinaan.index') }}"><i class="fas fa-book"></i><span>Pembinaaan</span></a></li>
+          {{-- <li class=""><a class="nav-link" href="{{ route('tahun_akademik.index') }}"><i class="fas fa-calendar-week"></i><span>Tahun kademik</span></a></li>
           <li class=""><a class="nav-link" href="{{ route('kurikulum.index') }}"><i class="fas fa-school"></i><span>Kurikulum</span></a></li>
           <li class=""><a class="nav-link" href="{{ route('jadwal.index') }}"><i class="fas fa-clipboard-list"></i><span>Jadwal Pembinaan</span></a></li>
           <li class="menu-header">Musyrif</li>

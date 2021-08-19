@@ -46,6 +46,17 @@ return [
             'provider' => 'users',
             'hash' => false,
         ],
+
+        'dosen' => [
+            'driver' => 'session',
+            'provider' => 'dsn',
+        ],
+
+        'dosen-api' => [
+            'driver' => 'token',
+            'provider' => 'dsn',
+            
+        ],
     ],
 
     /*
@@ -70,6 +81,12 @@ return [
             'driver' => 'eloquent',
             'model' => App\User::class,
         ],
+
+        'dsn' => [
+            'driver' => 'eloquent',
+            'model' => App\Dosen::class,
+        ],
+        
 
         // 'users' => [
         //     'driver' => 'database',

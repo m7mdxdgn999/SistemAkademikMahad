@@ -24,7 +24,7 @@
                         </div>
                         <div class="card-body">                            
 
-                            <form action="{{ route('dosen.store') }}" method="post">
+                            <form action="{{ route('admin.dosen.store') }}" method="post">
                                 @csrf
                                 <div class="row">
                                     <div class="col-md-12">
@@ -52,8 +52,8 @@
                                         <div class="mb-3">
                                             <label for="kode_mabna">Mabna</label>
                                             <select class="form-control"  name="kode_mabna">
-                                                @foreach($mabna as $mbn)
-                                                <option value="{{ $mbn->kode_mabna }}">{{ $mbn->nama_mabna }}</option>
+                                                @foreach($building as $bld)
+                                                <option value="{{ $bld->id }}">{{ $bld->nama_mabna }}</option>
                                                 @endforeach
                                             </select>      
                                             @error('kode_mabna')
@@ -103,39 +103,4 @@
             {{-- body end --}}
     </section>
 @endsection
-<script>
-    function random_function()
-    {
-        var a=document.getElementById("kode_pembinaan").value;
-        if(a==="01")
-        {
-            var arr=["Figh"];
-        }
-        else if(a==="02")
-        {
-            var arr=["Tafsir"];
-        }
-        else if(a==="03")
-        {
-            var arr=["Haditsh"];
-        }
-        else if(a==="04")
-        {
-            var arr=["English"];
-        }
-        else (a==="05")
-        {
-            var arr=["Arabic"];
-        }
-        var string="";
-     
-        for(i=0;i<arr.length;i++)
-        {
-            string=string+"<option value="+arr[i]+">"+arr[i]+"</option>";
-        }
-        document.getElementById("nama_pembinaan").innerHTML=string;
-    }
-</script>
-@push('page-scripts')
 
-@endpush

@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Building;
 use App\Http\Controllers\Controller;
+use App\Pembinaan;
 use Illuminate\Http\Request;
 
-class BuildingController extends Controller
+class PembinaanController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,7 @@ class BuildingController extends Controller
      */
     public function index()
     {
-        return view('admin.building.building');
+        return view('admin.pembinaan.pembinaan');
     }
 
     /**
@@ -25,7 +25,7 @@ class BuildingController extends Controller
      */
     public function create()
     {
-        return view('admin.building.create');
+        return view('admin.pembinaan.create');
     }
 
     /**
@@ -38,29 +38,29 @@ class BuildingController extends Controller
     {
         $request->validate(
             [
-                'kode_mabna' => 'required | unique:buildings',
-                'nama_mabna' => 'required ',
+                'kode_pembinaan' => 'required | unique:pembinaan',
+                'nama_pembinaan' => 'required ',
 
             ]
 
         );
         
-        Building::create([
-            'kode_mabna' => $request->kode_mabna,
-            'nama_mabna' => $request->nama_mabna
+        Pembinaan::create([
+            'kode_pembinaan' => $request->kode_pembinaan,
+            'nama_pembinaan' => $request->nama_pembinaan
 
         ]);
 
-        return redirect()->route('admin.building.index')->with('success', 'Data berhasil ditambah!');
+        return redirect()->route('admin.pembinaan.index')->with('success', 'Data berhasil ditambah!');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Building  $building
+     * @param  \App\Pembinaan  $pembinaan
      * @return \Illuminate\Http\Response
      */
-    public function show(Building $building)
+    public function show(Pembinaan $pembinaan)
     {
         //
     }
@@ -68,13 +68,13 @@ class BuildingController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Building  $building
+     * @param  \App\Pembinaan  $pembinaan
      * @return \Illuminate\Http\Response
      */
-    public function edit(Building $building)
+    public function edit(Pembinaan $pembinaan)
     {
-        return view('admin.building.edit', [
-            'building'=>$building
+        return view('admin.pembinaan.edit', [
+            'pembinaan'=>$pembinaan
         ]);
     }
 
@@ -82,28 +82,28 @@ class BuildingController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Building  $building
+     * @param  \App\Pembinaan  $pembinaan
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Building $building)
+    public function update(Request $request, Pembinaan $pembinaan)
     {
-        $building->update([
-            'kode_mabna' => $request->kode_mabna,
-            'nama_mabna' => $request->nama_mabna
+        $pembinaan->update([
+            'kode_pembinaan' => $request->kode_pembinaan,
+            'nama_pembinaan' => $request->nama_pembinaan
         ]);
 
-        return redirect()->route('admin.building.index')->with('info', 'Data berhasil diupdate!');
+        return redirect()->route('admin.pembinaan.index')->with('info', 'Data berhasil diupdate!');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Building  $building
+     * @param  \App\Pembinaan  $pembinaan
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Building $building)
+    public function destroy(Pembinaan $pembinaan)
     {
-        $building->delete();
+        $pembinaan->delete();
         return redirect()->back()->with('danger', 'Data berhasil dihapus');
     }
 }

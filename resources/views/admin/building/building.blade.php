@@ -6,7 +6,6 @@
 
         <div class="section-header">
             <h1>Mabna</h1>
-
         </div>
 
         <div class="section-body">
@@ -16,8 +15,7 @@
                 Mabna</a>
 
             <div class="row">
-                <div class="col-12 col-md-12 col-lg-12">
-                   
+                <div class="col-12 col-md-12 col-lg-12">                   
                     {{-- table start --}}
                     <div class="card">
                         <div class="card-body">
@@ -34,10 +32,7 @@
                     </div>
                     {{-- tablde end --}}
                 </div>
-
             </div>
-
-
         </div>
     </section>
     {{-- unutk keperluan sweet alert --}}

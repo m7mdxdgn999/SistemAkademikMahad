@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Building;
 use App\Http\Controllers\Controller;
+use App\Pembinaan;
+use App\Dosen;
 use Illuminate\Http\Request;
 use Yajra\Datatables\Datatables;
 
@@ -13,6 +15,23 @@ class DataController extends Controller
     {
         return datatables()->of(Building::query())
             ->addColumn('action', 'admin.building.action')
+            ->tojson();
+    }
+
+    public function pembinaan()
+    {
+        return datatables()->of(Pembinaan::query())
+            ->addColumn('action', 'admin.pembinaan.action')
+            ->tojson();
+    }
+
+    public function dosen()
+    {
+        return datatables()->of(Dosen::query())
+            ->addColumn('building', function(Dosen $model){
+                return $model->mabna->nama_mabna;
+            })
+            ->addColumn('action', 'admin.pembinaan.action')
             ->tojson();
     }
 }

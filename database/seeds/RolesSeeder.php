@@ -21,7 +21,8 @@ class RolesSeeder extends Seeder
         ]);
 
         Role::create([
-            'name'=>'dosen'
+            'name'=>'dosen',
+            'guard_name'=>'dosen'
         ]);
     }
 }

@@ -25,7 +25,7 @@
                         </div>
                         <div class="card-body">
 
-                            <form action="{{ route('pembinaan.store') }}" method="post">                          
+                            <form action="{{ route('admin.pembinaan.store') }}" method="post">                          
                             
                                 @csrf
                                 <div class="row">
@@ -43,17 +43,14 @@
                                             <input type="text" class="form-control @error('nama_pembinaan') is-invalid @enderror "  name="nama_pembinaan">
                                             @error('nama_pembinaan')
                                                 <div class="invalid-feedback">{{ $message }}</div>
-                                            @enderror
-                                            
+                                            @enderror                                            
                                         </div>
                                     </div>
-
                                 </div>
 
                                 <div class="card-footer text-right">                                    
                                     <button class="btn btn-primary mr-1" type="submit" id="submit"
-                                        name="submit">Submit</button>
-                                    
+                                        name="submit">Submit</button>                                    
                                 </div>
                            </form>
                         </div>

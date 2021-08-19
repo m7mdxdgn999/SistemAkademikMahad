@@ -27,7 +27,7 @@
                                     <div class="col-md-6">
                                         <div class="mb-3">
                                             <label for="kode_mabna">Kode Mabna</label>
-                                            <input type="text" class="form-control @error('kode_mabnaa') is-invalid                                                    
+                                            <input type="text" class="form-control @error('kode_mabna') is-invalid                                                    
                                                 @enderror"  name="kode_mabna">
                                             @error('kode_mabna')
                                                 <div class="invalid-feedback">{{ $message }}</div>

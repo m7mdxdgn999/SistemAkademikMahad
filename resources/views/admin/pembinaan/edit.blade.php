@@ -23,7 +23,7 @@
                         </div>
                         <div class="card-body">
                             
-                            <form action="{{ route('pembinaan.update', $pembinaan->kode_pembinaan) }}" method="post">
+                            <form action="{{ route('admin.pembinaan.update', $pembinaan) }}" method="post">
                                 @method('put')
                                 @csrf
                                 <div class="row">
