@@ -6,6 +6,7 @@ use App\Building;
 use App\Http\Controllers\Controller;
 use App\Pembinaan;
 use App\Dosen;
+use App\Kurikulum;
 use App\Mabna;
 use App\TahunAkademik;
 use Illuminate\Http\Request;
@@ -41,6 +42,16 @@ class DataController extends Controller
     {
         return datatables()->of(TahunAkademik::query())
             ->addColumn('action', 'admin.tahun_akademik.action')
+            ->tojson();
+    }
+
+    public function kurikulum()
+    {
+        return datatables()->of(Kurikulum::query())
+            ->addColumn('pembinaan', function(Kurikulum $model){
+                return $model->pembinaan->nama_pembinaan;
+            })
+            ->addColumn('action', 'admin.kurikulum.action')
             ->tojson();
     }
 }

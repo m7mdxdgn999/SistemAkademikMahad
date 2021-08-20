@@ -23,7 +23,7 @@
                         <div class="card-body">
 
                             {{-- {{ Form::open(['route' => 'curriculum.store']) }} --}}
-                            <form action="{{ route('kurikulum.store') }}" method="post">
+                            <form action="{{ route('admin.kurikulum.store') }}" method="post">
                                 @csrf
                                 <div class="row">
                                     <div class="col-md-6">
@@ -31,8 +31,7 @@
                                             <label for="kode_kurikulum">Kode Kurikulum</label>
                                             <input type="text" class="form-control @error('kode_kurikulum') is-invalid                                                  
                                                 @enderror" 
-                                                name="kode_kurikulum">
-                                                {{-- {{ Form::text ('kode_kurikulum',null,['class'=>'form-control','placeholder'=>'Kode Kurikulum']) }} --}}
+                                                name="kode_kurikulum">                                               
                                             @error('kode_kurikulum')
                                                 <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
@@ -42,13 +41,27 @@
                                     <div class="col-md-6">
                                         <div class="mb-3">
                                             <label for="kode_mabna">Mabna</label>
-                                            {{ Form::select('kode_mabna',$mabna,null,['class'=>'form-control']) }}
+                                            <select class="form-control"  name="kode_mabna">
+                                                @foreach($mabna as $mbn)
+                                                <option value="{{ $mbn->kode_mabna }}">{{ $mbn->nama_mabna }}</option>
+                                                @endforeach
+                                            </select>      
+                                            @error('kode_mabna')
+                                                <div class="invalid-feedback">{{ $message }}</div>
+                                            @enderror                                            
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="mb-3">
                                             <label for="kode_pembinaan">Pembiaan</label>
-                                            {{ Form::select('kode_pembinaan',$pembinaan,null,['class'=>'form-control']) }}
+                                            <select class="form-control"  name="kode_pembinaan">
+                                                @foreach($pembinaan as $pem)
+                                                <option value="{{ $pem->kode_pembinaan }}">{{ $pem->nama_pembinaan }}</option>
+                                                @endforeach
+                                            </select>      
+                                            @error('kode_pembinaan')
+                                                <div class="invalid-feedback">{{ $message }}</div>
+                                            @enderror                                            
                                         </div>
                                     </div>
 
@@ -61,27 +74,18 @@
                                             </select>
                                         </div>
                                     </div>
-
-
                                 </div>
-
-                                <div class="card-footer text-right">
-                                    {{ Form::submit('Submit',['class'=>'btn btn-primary mr-1']) }}
+                                <div class="card-footer text-right">                                    
+                                    <button type="submit" class="btn btn-primary mr-1">Submit</button>                                   
                                     
                                 </div>
                             </form>
                         </div>
-
                     </div>
-
                 </div>
-
-
             </div>
             {{-- body end --}}
     </section>
 @endsection
 
-@push('page-scripts')
 
-@endpush

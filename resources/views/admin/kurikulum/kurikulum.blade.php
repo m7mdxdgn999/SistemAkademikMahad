@@ -10,45 +10,30 @@
         </div>
 
         <div class="section-body">
-            <a href="{{ route('kurikulum.create') }}" class="btn btn-icon icon-left btn-primary" style="margin-bottom:30px"><i
-                    class="far fa-edit" ></i > Tambah Kurikulum</a>
+            <a href="{{ route('admin.kurikulum.create') }}" class="btn btn-icon icon-left btn-primary"
+                style="margin-bottom:30px"><i class="far fa-edit"></i> Tambah Kurikulum</a>
             <div class="row">
-                <div class="col-12 col-md-12 col-lg-12">
-
-                    @if (session('message'))
-                        <div class="alert alert-success alert-dismissible show fade">
-                            <div class="alert-body">
-                                <button class="close" data-dismiss="alert">
-                                    <span>×</span>
-                                </button>
-                                {{ session('message') }}
-                            </div>
-                        </div>
-                    @endif
-
-                    {{-- </div> --}}
-                    {{-- tablde end --}}
-
+                <div class="col-12 col-md-12 col-lg-12">                  
+                   
                     {{-- table start --}}
-
-
                     <div class="card">
-                        <div class="card-body">
-                            {{ Form::open(['route'=>'kurikulum.index','method'=>'GET'] ) }}
-                            @csrf
-                            <table class="table " width="100%">
-
-                                <tr>
-                                    <th>Mabna</th>
-                                    <td>{{ Form::select('kode_mabna',$mabna,$mabna_terpilih,['class'=>'form-control']) }}</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td><button type="submit" class="btn btn-icon btn-success"><i class="fas fa-sync-alt"></i> Refresh Data</button></td>
-                                </tr>
-
-                            </table>
-                            {{ form::close() }}
+                        <div class="card-body">                           
+                            <form action="{{ route('admin.kurikulum.index') }}" method="get">
+                                @csrf
+                                <table class="table " width="100%">
+                                    <tr>
+                                        <th>Mabna</th>
+                                        <td>                                     
+                                            {{ Form::select('kode_mabna', $mabna, $mabna_terpilih, ['class' => 'form-control']) }}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td><button type="submit" class="btn btn-icon btn-success"><i
+                                                    class="fas fa-sync-alt"></i> Refresh Data</button></td>
+                                    </tr>
+                                </table>
+                            </form>
                         </div>
                     </div>
 
@@ -56,7 +41,7 @@
                 <div class="col-12 col-md-12 col-lg-12">
                     <div class="card">
                         <div class="card-body">
-                            <table class="table ">
+                            <table class="table table-bordered table-hover" id="datatable">
                                 <thead>
                                     <tr>
                                         <th scope="col">Kode Kurikulum</th>
@@ -66,7 +51,7 @@
                                         <th scope="col" width="140">Aksi</th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                {{-- <tbody>
                                     @foreach ($kurikulum as $kuriklm)
                                         <tr>
                                             <th>{{ $kuriklm->kode_kurikulum }}</th>
@@ -79,9 +64,8 @@
                                                     <button type="submit" class="btn btn-icon btn-primary "><i
                                                             class="far fa-edit"></i></button>
                                                 </form>
-                                                <form
-                                                    action="{{ route('kurikulum.destroy', $kuriklm->kode_kurikulum) }}"
-                                                    class="float-right"  method="post">
+                                                <form action="{{ route('kurikulum.destroy', $kuriklm->kode_kurikulum) }}"
+                                                    class="float-right" method="post">
                                                     @csrf
                                                     @method('delete')
                                                     <button type="submit" class="btn btn-icon btn-danger"><i
@@ -90,31 +74,54 @@
                                             </td>
                                         </tr>
                                     @endforeach
-                                </tbody>
+                                </tbody> --}}
                             </table>
-                            <div>
-                                showing
-                                {{ $kurikulum->firstItem() }}
-                                to
-                                {{ $kurikulum->lastItem() }}
-                                of
-                                {{ $kurikulum->total() }}
-                                entries
-                            </div>
-                            <div class="float-right">
-                                {{ $kurikulum->links() }}
-                            </div>
                         </div>
                     </div>
-
                 </div>
             </div>
-
-
             {{-- tablde end --}}
         </div>
+    </section>
+        {{-- unutk keperluan sweet alert --}}
+        <form action="" method="post" id=deleteForm>
+            @csrf
+            @method('delete')
+            <input type="submit" style="display:none">
+        </form>
+@endsection
+@push('scripts')
+
+{{-- boostrap notify --}}
+<script src="{{ asset('assets/plugins/bs-notify-min.js') }}"></script>
+@include('layouts.admin.alert')
 
 
+<script>
+    $(function() {
+        $('#datatable').DataTable({
+            processing: true,
+            serverSide: true,
+            ajax: '{{ route('admin.kurikulum.data') }}',
+            columns: [{
+                    data: 'kode_kurikulum'
+                },
+                {
+                    data: 'kode_pembinaan'
+                },
+                {
+                    data: 'pembinaan'
+                },
+                {
+                    data: 'semester'
+                },
+                {
+                    data: 'action'
+                },
+ 
+            ]
+        });
+    });
 
-
-    @endsection
+</script>
+@endpush

@@ -35,3 +35,11 @@ Route::post('/tahun_akademik/store', 'TahunAkademikController@Store')->name('tah
 Route::get('/tahun_akademik/edit/{tahunAkademik}', 'TahunAkademikController@Edit')->name('tahun_akademik.edit');
 Route::put('/tahun_akademik/update/{tahunAkademik}', 'TahunAkademikController@Update')->name('tahun_akademik.update');
 Route::delete('/tahun_akademik/delete/{tahunAkademik}', 'TahunAkademikController@Destroy')->name('tahun_akademik.destroy');
+
+Route::get('/kurikulum', 'KurikulumController@Index')->name('kurikulum.index');
+Route::get('/kurikulum/data','DataController@kurikulum')->name('kurikulum.data');
+Route::get('/kurikulum/create', 'KurikulumController@Create')->name('kurikulum.create');
+Route::post('/kurikulum/store', 'KurikulumController@Store')->name('kurikulum.store');
+Route::get('/kurikulum/edit/{kurikulum}', 'KurikulumController@Edit')->name('kurikulum.edit');
+Route::put('/kurikulum/update/{kurikulum}', 'KurikulumController@Update')->name('kurikulum.update');
+Route::delete('/kurikulum/delete/{kurikulum}', 'KurikulumController@Destroy')->name('kurikulum.destroy');

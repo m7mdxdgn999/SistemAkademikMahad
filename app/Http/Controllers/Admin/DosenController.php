@@ -28,7 +28,9 @@ class DosenController extends Controller
      */
     public function create()
     {
-        return view('admin.dosen.create',['mabna'=>Mabna::all()]);
+        return view('admin.dosen.create',[
+            'mabna'=>Mabna::all()
+            ]);
     }
 
     /**
