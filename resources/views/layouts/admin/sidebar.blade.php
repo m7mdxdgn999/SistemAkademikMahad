@@ -20,7 +20,7 @@
           <li class=""><a class="nav-link" href="{{ route('admin.pembinaan.index') }}"><i class="fas fa-book"></i><span>Pembinaaan</span></a></li>
           <li class=""><a class="nav-link" href="{{ route('admin.tahun_akademik.index') }}"><i class="fas fa-calendar-week"></i><span>Tahun kademik</span></a></li>
           <li class=""><a class="nav-link" href="{{ route('admin.kurikulum.index') }}"><i class="fas fa-school"></i><span>Kurikulum</span></a></li>
-          {{-- <li class=""><a class="nav-link" href="{{ route('jadwal.index') }}"><i class="fas fa-clipboard-list"></i><span>Jadwal Pembinaan</span></a></li> --}}
+          <li class=""><a class="nav-link" href="{{ route('admin.jadwal.index') }}"><i class="fas fa-clipboard-list"></i><span>Jadwal Pembinaan</span></a></li>
           <li class="menu-header">Musyrif</li>
           <li class=""><a class="nav-link" href="{{ route('admin.dosen.index') }}"><i class="fas fa-chalkboard-teacher"></i><span>Musyrif</span></a></li>
           {{-- <li class="menu-header">Mahasiwsa</li>

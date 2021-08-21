@@ -43,3 +43,10 @@ Route::post('/kurikulum/store', 'KurikulumController@Store')->name('kurikulum.st
 Route::get('/kurikulum/edit/{kurikulum}', 'KurikulumController@Edit')->name('kurikulum.edit');
 Route::put('/kurikulum/update/{kurikulum}', 'KurikulumController@Update')->name('kurikulum.update');
 Route::delete('/kurikulum/delete/{kurikulum}', 'KurikulumController@Destroy')->name('kurikulum.destroy');
+
+Route::get('/jadwal', 'JadwalController@Index')->name('jadwal.index');
+Route::get('/jadwal/create', 'JadwalController@Create')->name('jadwal.create');
+Route::post('/jadwal/store', 'JadwalController@Store')->name('jadwal.store');
+Route::get('/jadwal/edit/{jadwal}', 'JadwalController@Edit')->name('jadwal.edit');
+Route::put('/jadwal/update/{jadwal}', 'JadwalController@Update')->name('jadwal.update');
+Route::delete('/jadwal/delete/{jadwal}', 'JadwalController@Destroy')->name('jadwal.destroy');

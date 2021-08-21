@@ -73,10 +73,7 @@
                                     <div class="col-md-6">
                                         <div class="mb-3">
                                             <label for="semester">Semester</label>
-                                            <select class="form-control form-control-sm" name="semester">                                                     
-                                                    <option value="genap">Genap</option>
-                                                    <option value="ganjil">Ganjil</option>                                                                                          
-                                            </select>
+                                            {{ Form::select('semester',['genap'=>'Genap','ganjil'=>'Ganjil'],$kurikulum->semester,['class'=>'form-control']) }}
                                         </div>
                                     </div>
 
@@ -84,7 +81,7 @@
                                 </div>
 
                                 <div class="card-footer text-right">
-                                    {{ Form::submit('Submit',['class'=>'btn btn-primary mr-1']) }}                                    
+                                    <button type="submit" class="btn btn-primary mr-1">Submit</button>                                    
                                 </div>
                             </form>
                         </div>
