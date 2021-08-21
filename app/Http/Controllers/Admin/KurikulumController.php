@@ -19,19 +19,21 @@ class KurikulumController extends Controller
     public function index(Request $request)
     {
         $mabna= $request->get('kode_mabna');
-        // $data['mabna']=Mabna::pluck('nama_mabna','kode_mabna');
-        // $data['kurikulum']=DB::table('kurikulum')
-        //                     ->join ('pembinaan','kurikulum.kode_pembinaan','=','pembinaan.kode_pembinaan')
-        //                     ->join ('mabna','kurikulum.kode_mabna','=','mabna.kode_mabna')
-        //                     ->where('kurikulum.kode_mabna',$mabna)
-        //                     ->paginate(5);
+        $data['mabna']=Mabna::pluck('nama_mabna','kode_mabna');
+        $data['kurikulum']=DB::table('kurikulum')
+                            ->join ('pembinaan','kurikulum.kode_pembinaan','=','pembinaan.kode_pembinaan')
+                            ->join ('mabna','kurikulum.kode_mabna','=','mabna.kode_mabna')
+                            ->where('kurikulum.kode_mabna',$mabna)
+                            ->paginate(5);
         
-        // $data['mabna_terpilih']=$mabna;
-        return view('admin.kurikulum.kurikulum',[
-            'mabna'=>Mabna::pluck('nama_mabna','kode_mabna'),
-            'mabna_terpilih'=>$mabna,
-            'kurikulum'=>DB::table('kurikulum')->where('kurikulum.kode_mabna',$mabna)
-        ]);
+        $data['mabna_terpilih']=$mabna;
+        return view('admin.kurikulum.kurikulum',$data);
+
+        // return view('admin.kurikulum.kurikulum',[
+        //     'mabna'=>Mabna::pluck('nama_mabna','kode_mabna'),
+        //     'mabna_terpilih'=>$mabna,
+        //     'kurikulum'=>DB::table('kurikulum')->where('kurikulum.kode_mabna',$mabna)
+        // ]);
     }
 
     /**
