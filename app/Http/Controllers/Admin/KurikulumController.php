@@ -28,12 +28,6 @@ class KurikulumController extends Controller
         
         $data['mabna_terpilih']=$mabna;
         return view('admin.kurikulum.kurikulum',$data);
-
-        // return view('admin.kurikulum.kurikulum',[
-        //     'mabna'=>Mabna::pluck('nama_mabna','kode_mabna'),
-        //     'mabna_terpilih'=>$mabna,
-        //     'kurikulum'=>DB::table('kurikulum')->where('kurikulum.kode_mabna',$mabna)
-        // ]);
     }
 
     /**
