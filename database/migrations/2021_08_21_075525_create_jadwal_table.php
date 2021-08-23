@@ -21,8 +21,8 @@ class CreateJadwalTable extends Migration
             $table->foreign('kode_mabna')->references('kode_mabna')->on('mabna');
             $table->string('kode_pembinaan'); 
             $table->foreign('kode_pembinaan')->references('kode_pembinaan')->on('pembinaan');
-            $table->unsignedBigInteger('kode_dosen'); 
-            $table->foreign('kode_dosen')->references('id')->on('dosen');
+            $table->string('kode_dosen'); 
+            $table->foreign('kode_dosen')->references('kode_dosen')->on('dosen');
             $table->string('kode_tahun_akademik'); 
             $table->foreign('kode_tahun_akademik')->references('kode_tahun_akademik')->on('tahun_akademik');
             $table->string('ruang'); 

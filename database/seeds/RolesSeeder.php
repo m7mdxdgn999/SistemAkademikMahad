@@ -22,7 +22,7 @@ class RolesSeeder extends Seeder
 
         Role::create([
             'name'=>'dosen',
-            'guard_name'=>'dosen'
+            
         ]);
     }
 }

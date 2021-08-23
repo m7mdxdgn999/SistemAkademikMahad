@@ -41,7 +41,21 @@ class DosenController extends Controller
      */
     public function store(Request $request)
     {
-        $user=Dosen::create([
+        $request->validate(
+            [
+                'nip' => 'required',
+                'nama_dosen' => 'required',
+                'kode_dosen' => 'required ',
+                'kode_mabna' => 'required ',
+                'email' => 'required ',
+                'no_hp_dosen' => 'required ',
+                'password' => 'required ',
+
+            ]
+ 
+        );
+
+        Dosen::create([
             'nip' => $request->nip,
             'nama_dosen' => $request->nama_dosen,
             'kode_dosen'=> $request->kode_dosen,
@@ -52,8 +66,14 @@ class DosenController extends Controller
 
         ]);
 
-        $user->assignRole('dosen');
-        return $user;
+            //insert ke table user
+            $user=new \App\User;
+            $user->assignRole('dosen');
+            $user->name=$request->nama_dosen;
+            $user->email=$request->email;
+            $user->password=bcrypt($request->password) ;
+            $user->email_verified_at=now();
+            $user->save();
 
         return redirect()->route('admin.dosen.index')->with('success', 'Data berhasil ditambah!');
 
