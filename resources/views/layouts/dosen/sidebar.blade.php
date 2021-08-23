@@ -8,7 +8,7 @@
     </div>
     <ul class="sidebar-menu">
         <li class="menu-header">Dashboard</li>
-        <li class=""><a class="nav-link" href="{{ route('jadwal.dosen') }}"><i class="fas fa-calendar-day"></i><span>Jadwal Kuliah</span></a></li>
+        <li class=""><a class="nav-link" href="{{ route('dosen.jadwal.index') }}"><i class="fas fa-calendar-day"></i><span>Jadwal Kuliah</span></a></li>
         
        
       </ul>

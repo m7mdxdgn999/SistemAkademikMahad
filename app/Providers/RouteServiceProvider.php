@@ -45,6 +45,9 @@ class RouteServiceProvider extends ServiceProvider
         // route admin
         $this->mapAdminRoutes();
 
+        // route dosen
+        $this->mapDosenRoutes();
+
         $this->mapApiRoutes();
 
         $this->mapWebRoutes();
@@ -59,6 +62,15 @@ class RouteServiceProvider extends ServiceProvider
             ->name('admin.')
             ->namespace($this->namespace.'\Admin')
             ->group(base_path('routes/admin.php'));
+    }
+
+    protected function mapDosenRoutes()
+    {
+        Route::middleware('web','auth','role:dosen')
+            ->prefix('dosen')
+            ->name('dosen.')
+            ->namespace($this->namespace.'\Dosen')
+            ->group(base_path('routes/dosen.php'));
     }
 
     /**

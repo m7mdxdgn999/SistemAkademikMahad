@@ -44,7 +44,7 @@ class LoginController extends Controller
             return redirect()->route('admin.mabna.index');
         }
         elseif($user->hasRole('dosen')){
-            return 'hello dosen';
+            return redirect()->route('dosen.jadwal.index');
         }
 
         elseif($user->hasRole('mahasiswa')){
