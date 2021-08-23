@@ -23,11 +23,8 @@
           <li class=""><a class="nav-link" href="{{ route('admin.jadwal.index') }}"><i class="fas fa-clipboard-list"></i><span>Jadwal Pembinaan</span></a></li>
           <li class="menu-header">Musyrif</li>
           <li class=""><a class="nav-link" href="{{ route('admin.dosen.index') }}"><i class="fas fa-chalkboard-teacher"></i><span>Musyrif</span></a></li>
-          {{-- <li class="menu-header">Mahasiwsa</li>
-          <li class=""><a class="nav-link" href="{{ route('student.index') }}"><i class="fas fa-user-graduate"></i><span>Mahasiwsa</span></a></li> 
-           --}}
+          <li class="menu-header">Mahasiwsa</li>
+          <li class=""><a class="nav-link" href="{{ route('admin.mahasiswa.index') }}"><i class="fas fa-user-graduate"></i><span>Mahasiwsa</span></a></li>           
         </ul>
-
-
     </aside>
   </div>

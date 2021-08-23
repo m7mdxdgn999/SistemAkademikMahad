@@ -21,7 +21,7 @@
                         </div>
                         <div class="card-body">
 
-                            <form action="{{ route('student.update',$mahasiswa->nim) }}" method="post">
+                            <form action="{{ route('admin.mahasiswa.update',$mahasiswa) }}" method="post">
                                 @csrf
                                 @method('put')
                                 <div class="row">
@@ -45,11 +45,11 @@
                                             @enderror
                                         </div>
                                         <div class="mb-3">
-                                            <label for="fakultas_jurusan_semester"> Fakultas/ Jurusan</label>
+                                            <label for="fakultas_jurusan"> Fakultas/ Jurusan</label>
                                             <input type="text"
-                                                class="form-control @error('fakultas_jurusan_semester') is-invalid @enderror "
-                                                name="fakultas_jurusan_semester" @if (old('fakultas_jurusan_semester')) value="{{ old('fakultas_jurusan_semester') }}" @else value="{{ $mahasiswa->fakultas_jurusan_semester }}" @endif>
-                                            @error('fakultas_jurusan_semester')
+                                                class="form-control @error('fakultas_jurusan') is-invalid @enderror "
+                                                name="fakultas_jurusan" @if (old('fakultas_jurusan')) value="{{ old('fakultas_jurusan') }}" @else value="{{ $mahasiswa->fakultas_jurusan }}" @endif>
+                                            @error('fakultas_jurusan')
                                                 <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
                                         </div>
@@ -80,6 +80,10 @@
                                                 <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
                                         </div>
+                                        <div class="mb-3">
+                                            <label for="semester_aktif">Semester Aktif</label>
+                                            {{ Form::select('semester_aktif',['1'=>'Ganjil','2'=>'Genap'],$mahasiswa->semester_aktif,['class'=>'form-control']) }}
+                                        </div>
                                     </div>
 
                                     <div class="col-md-6">
@@ -99,23 +103,18 @@
                                             @enderror
                                         </div>
                                         <div class="mb-3">
-                                            <label for="no_hp_mahasantri">No hp</label>
+                                            <label for="no_hp_mahasiswa">No hp</label>
                                             <input type="text"
-                                                class="form-control @error('no_hp_mahasantri') is-invalid @enderror "
-                                                 name="no_hp_mahasantri" @if (old('no_hp_mahasantri')) value="{{ old('no_hp_mahasantri') }}" @else value="{{ $mahasiswa->no_hp_mahasantri }}" @endif>
-                                            @error('no_hp_mahasantri')
+                                                class="form-control @error('no_hp_mahasiswa') is-invalid @enderror "
+                                                 name="no_hp_mahasiswa" @if (old('no_hp_mahasiswa')) value="{{ old('no_hp_mahasiswa') }}" @else value="{{ $mahasiswa->no_hp_mahasiswa }}" @endif>
+                                            @error('no_hp_mahasiswa')
                                                 <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
                                         </div>
                                         <div class="mb-3">
-                                            <label for="jalur_masuk"  >Jalur
+                                            <label for="jalur_masuk">Jalur
                                                 Masuk:</label>
-                                            <select class="form-control" name="jalur_masuk">
-                                                <option value="SNMPTN">SNMPTN</option>
-                                                <option value="SPAN PTKIN">SPAN PTKIN </option>
-                                                <option value="SBMPTN">SBMPTN</option>
-                                                <option value="UMPTKIN">UMPTKIN</option>
-                                            </select>
+                                            {{ Form::select('jalur_masuk',['SNMPTN'=>'SNMPTN','SPAN PTKIN'=>'SPAN PTKIN','SBMPTN'=>'SBMPTN','UMPTKIN'=>'UMPTKIN'],$mahasiswa->jalur_masuk,['class'=>'form-control']) }}
                                         </div>
                                         <div class="mb-3">
                                             <label for="no_hp_org_tua">No Hp Orang Tua / Wali</label>
@@ -126,19 +125,33 @@
                                         <div class="mb-3">
                                             <label for="kode_mabna">Mabna:</label>
                                             <select class="form-control"  name="kode_mabna">
-                                                @foreach($mabna as $mabna)
-                                                <option value="{{ $mabna->kode_mabna }}">{{ $mabna->nama_mabna }}</option>
+                                                @foreach($mabna as $mbn)
+                                                <option value="{{ $mbn->kode_mabna }}" @if($mbn->kode_mabna==$mahasiswa->kode_mabna)
+                                                    selected
+                                                @endif>{{ $mbn->nama_mabna }}</option>
                                                 @endforeach
-                                            </select>
+                                            </select>      
+                                            @error('kode_mabna')
+                                                <div class="invalid-feedback">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="kode_tahun_akademik">Tahun Akademik:</label>  
+                                            <select class="form-control"  name="kode_tahun_akademik">
+                                                @foreach($tahun_akademik as $thn)
+                                                <option value="{{ $thn->kode_tahun_akademik }}" @if($thn->kode_tahun_akademik==$mahasiswa->kode_tahun_akademik)
+                                                    selected
+                                                @endif>{{ $thn->tahun_akademik }}</option>
+                                                @endforeach
+                                            </select>                                            
+
                                         </div>
 
                                     </div>
                                 </div>
-
                                 <div class="card-footer text-right">
                                     <button class="btn btn-primary mr-1" type="submit" id="submit"
                                         name="submit">Submit</button>
-                                    <button class="btn btn-secondary" type="reset">Reset</button>
                                 </div>
                             </form>
                         </div>

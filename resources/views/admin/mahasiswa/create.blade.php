@@ -1,12 +1,12 @@
 @extends('layouts.admin.master')
-@section('title', 'Input Data Mahasantri')
+@section('title', 'Input Data Mahasiswa')
 
 @section('content')
     <section class="section">
 
         {{-- header start --}}
         <div class="section-header">
-            <h1>Input Data Mahasantri</h1>
+            <h1>Input Data Mahasiswa</h1>
         </div>
         {{-- header end --}}
 
@@ -17,11 +17,11 @@
                 <div class="col-12 ">
                     <div class="card">
                         <div class="card-header">
-                            <h4>Data Mahasantri</h4>
+                            <h4>Data Mahasiswa</h4>
                         </div>
                         <div class="card-body">
 
-                            <form action="{{ route('student.store') }}" method="post">
+                            <form action="{{ route('admin.mahasiswa.store') }}" method="post">
                                 @csrf
                                 <div class="row">
                                     <div class="col-md-6">

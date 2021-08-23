@@ -8,6 +8,7 @@ use App\Pembinaan;
 use App\Dosen;
 use App\Kurikulum;
 use App\Mabna;
+use App\Mahasiswa;
 use App\TahunAkademik;
 use Illuminate\Http\Request;
 use Yajra\Datatables\Datatables;
@@ -52,6 +53,16 @@ class DataController extends Controller
                 return $model->pembinaan->nama_pembinaan;
             })
             ->addColumn('action', 'admin.kurikulum.action')
+            ->tojson();
+    }
+
+    public function mahasiswa()
+    {
+        return datatables()->of(Mahasiswa::query())
+            ->addColumn('mabna', function(Mahasiswa $model){
+            return $model->mabna->nama_mabna;
+            })            
+            ->addColumn('action', 'admin.mahasiswa.action')
             ->tojson();
     }
 }

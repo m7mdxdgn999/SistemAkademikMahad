@@ -50,3 +50,12 @@ Route::post('/jadwal/store', 'JadwalController@Store')->name('jadwal.store');
 Route::get('/jadwal/edit/{jadwal}', 'JadwalController@Edit')->name('jadwal.edit');
 Route::put('/jadwal/update/{jadwal}', 'JadwalController@Update')->name('jadwal.update');
 Route::delete('/jadwal/delete/{jadwal}', 'JadwalController@Destroy')->name('jadwal.destroy');
+
+Route::get('/mahasiswa', 'MahasiswaController@Index')->name('mahasiswa.index');
+Route::get('/mahasiswa/data','DataController@mahasiswa')->name('mahasiswa.data');
+Route::get('/mahasiswa/create', 'MahasiswaController@Create')->name('mahasiswa.create');
+Route::post('/mahasiswa/store', 'MahasiswaController@Store')->name('mahasiswa.store');
+Route::get('/mahasiswa/edit/{mahasiswa}', 'MahasiswaController@Edit')->name('mahasiswa.edit');
+Route::put('/mahasiswa/update/{mahasiswa}', 'MahasiswaController@Update')->name('mahasiswa.update');
+Route::get('/mahasiswa/show/{mahasiswa}', 'MahasiswaController@Show')->name('mahasiswa.show');
+Route::delete('/mahasiswa/delete/{mahasiswa}', 'MahasiswaController@Destroy')->name('mahasiswa.destroy');
