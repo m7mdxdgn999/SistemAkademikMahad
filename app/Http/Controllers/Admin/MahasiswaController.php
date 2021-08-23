@@ -79,7 +79,15 @@ class MahasiswaController extends Controller
             'password' => Hash::make($request->password) 
         ]);
 
-       
+        //insert ke table user
+        $user=new \App\User;
+        $user->assignRole('mahasiswa');
+        $user->name=$request->nama_mahasiswa;
+        $user->email=$request->email;
+        $user->password=bcrypt($request->password) ;
+        $user->email_verified_at=now();
+        $user->save();
+      
 
         //alihkan halaman ke halaman admin klo sudah tersimpan
         return redirect()->route('admin.mahasiswa.index')->with('success', 'Data berhasil ditambah!');
